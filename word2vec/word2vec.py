@@ -48,7 +48,7 @@ def read_file_cut():
 
 def model_train(model_name):
     sentences = word2vec.Text8Corpus(respath)
-    model=word2vec.Word2Vec(sentences,size=100, min_count=10, window=7, iter=1)
+    model=word2vec.Word2Vec(sentences,size=100, min_count=10, window=7, iter=10)
     model.save(model_name)
 	# model.wv.save_word2vec_format(model_name + ".bin", binary=True)
 
@@ -66,12 +66,12 @@ def model_to_list(model):
 
 
 if __name__ == '__main__':
-    text = read_file_cut()
+    '''text = read_file_cut()'''
     
-    '''model_name = 'word2vec.model'
+    model_name = 'word2vec.model'
     if not os.path.exists(model_name):
         model_train(model_name)
     model = word2vec.Word2Vec.load(model_name)
     wordlist, wvs = model_to_list(model)
     for i in range(10):
-        print(wordlist[i], wvs[i])'''
+        print(wordlist[i], wvs[i])
